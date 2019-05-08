@@ -20,6 +20,12 @@ defmodule PhxImportMapsWeb.Router do
     get "/", PageController, :index
   end
 
+  scope "/api", PhxImportMapsWeb do
+    pipe_through :api
+    post "/", PageController, :add_mappings
+    get "/", PageController, :get_mappings
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", PhxImportMapsWeb do
   #   pipe_through :api

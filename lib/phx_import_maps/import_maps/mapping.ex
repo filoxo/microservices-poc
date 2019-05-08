@@ -2,6 +2,7 @@ defmodule PhxImportMaps.ImportMaps.Mapping do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @derive {Jason.Encoder, only: [:name, :url, :inserted_at]}
   schema "mappings" do
     field :active, :boolean, default: false
     field :name, :string

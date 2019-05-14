@@ -5,6 +5,7 @@ defmodule PhxImportMaps.Repo.Migrations.CreateInactiveMappings do
     create table(:inactive_mappings) do
       add :name, :string
       add :url, :string
+      add :original_inserted_at, :naive_datetime
       add :active_mapping_id, references(:active_mappings, on_delete: :nothing)
 
       timestamps()

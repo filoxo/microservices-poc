@@ -10,6 +10,20 @@
       <%= @import_map %>
     </script>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/common-deps.js") %>"></script>
+     <script>
+      /* Add history push/replaceState events */
+      var _wr = function(type) {
+        var orig = history[type];
+        return function() {
+            var rv = orig.apply(this, arguments);
+            var e = new Event(type);
+            e.arguments = arguments;
+            window.dispatchEvent(e);
+            return rv;
+        };
+      };
+      history.pushState = _wr('pushState'), history.replaceState = _wr('replaceState');
+    </script>
   </head>
   <body>
     <header id="navbar-ui"></header>

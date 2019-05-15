@@ -4,7 +4,8 @@ defmodule PhxImportMapsWeb.PageController do
   alias PhxImportMaps.Repo
 
   def index(conn, _params) do
-    render(conn, "index.html")
+    import_map = %{imports: get_import_map()} |> Jason.encode!(pretty: true) |> Phoenix.HTML.raw
+    render(conn, :index, import_map: import_map)
   end
 
   @doc "Creates an active mapping, and archives an existing previous mapping."

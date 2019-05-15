@@ -14,16 +14,16 @@ defmodule PhxImportMapsWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", PhxImportMapsWeb do
-    pipe_through :browser
-
-    get "/", PageController, :index
-  end
-
   scope "/api", PhxImportMapsWeb do
     pipe_through :api
     post "/", PageController, :add_mappings
     get "/", PageController, :get_mappings
+  end
+
+  scope "/", PhxImportMapsWeb do
+    pipe_through :browser
+
+    get "/*path", PageController, :index
   end
 
   # Other scopes may use custom stacks.

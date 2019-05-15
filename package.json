@@ -20,6 +20,7 @@
     "start:dev": "sirv public --dev --cors"
   },
   "dependencies": {
-    "single-spa-svelte": "^1.0.0"
+    "single-spa-svelte": "^1.0.0",
+    "svelte-routing": "^1.0.0"
   }
 }

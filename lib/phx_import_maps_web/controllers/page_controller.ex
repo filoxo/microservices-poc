@@ -33,7 +33,7 @@ defmodule PhxImportMapsWeb.PageController do
     end
 
     {:ok, updated_active_mapping} = active_mapping
-    |> ActiveMapping.changeset(%{})
+    |> ActiveMapping.changeset(%{url: url})
     |> Repo.insert_or_update()
 
     updated_active_mapping

@@ -1,12 +1,15 @@
 /* This file is for your main application css. */
 
 @import "./phoenix.css";
-
+:root {
+    --page-width: 1200px;
+}
 body {
     margin: 0;
 }
-
+#navbar-ui {
+    background-color: #111;
+}
 #navbar-ui:empty {
-    background-color: #222;
-    padding-bottom: 40px;
+    padding-bottom: 50px;
 }

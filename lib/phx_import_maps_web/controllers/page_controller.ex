@@ -39,8 +39,11 @@ defmodule PhxImportMapsWeb.PageController do
   end
 
   def get_mappings(conn, _params) do
-    import_map = Repo.all(ActiveMapping) |> format_import_map_json()
-    json(conn, import_map)
+    json(conn, get_import_map())
+  end
+
+  def get_import_map() do
+    Repo.all(ActiveMapping) |> format_import_map_json()
   end
 
   defp format_import_map_json(mapping_list) do

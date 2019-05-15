@@ -49,8 +49,8 @@ a:hover {
 		</li>
 		<li><a href={urls.messenger} aria-current={atMessengerRoute}>Messenger</a></li>
 		<li><a href={urls.dashboard} aria-current={atDashboardRoute}>Dashboard</a></li>
-		<li><a href="#">Analytics</a></li>
-		<li><a href="#">Reviews</a></li>
-		<li><a href="#">Leaderboard</a></li>
+		<li><a href="/">Analytics</a></li>
+		<li><a href="/">Reviews</a></li>
+		<li><a href="/">Leaderboard</a></li>
 	</ul>
 </nav>

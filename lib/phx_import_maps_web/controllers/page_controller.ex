@@ -20,7 +20,7 @@ defmodule PhxImportMapsWeb.PageController do
   end
 
   defp upsert_mapping({name, url}) do
-    active_mapping = Repo.get_by(ActiveMapping, name: name)
+    active_mapping = Repo.get_by(ActiveMapping, name: name) || %ActiveMapping{name: name, url: url}
 
     if !is_nil(active_mapping.inserted_at) do
       InactiveMapping.changeset(%InactiveMapping{}, %{
@@ -33,7 +33,7 @@ defmodule PhxImportMapsWeb.PageController do
     end
 
     {:ok, updated_active_mapping} = active_mapping
-    |> ActiveMapping.changeset(%{url: url})
+    |> ActiveMapping.changeset(%{})
     |> Repo.insert_or_update()
 
     updated_active_mapping

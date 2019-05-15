@@ -9,12 +9,11 @@ defmodule PhxImportMapsWeb.PageController do
 
   @doc "Creates an active mapping, and archives an existing previous mapping."
   def add_mappings(conn, params) do
-
-    {:ok, result} = Repo.transaction(fn ->
+    import_map = Repo.transaction(fn ->
       params |> Enum.map(&upsert_mapping/1)
     end)
-
-    import_map = format_import_map_json(result)
+    |> elem(1)
+    |> format_import_map_json()
 
     json(conn, import_map)
   end

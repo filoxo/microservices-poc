@@ -10,30 +10,42 @@ defmodule PhxImportMapsWeb.PageController do
   @doc "Creates an active mapping, and archives an existing previous mapping."
   def add_mappings(conn, params) do
 
-   {:ok, result} = Repo.transaction(fn ->
-      active_mapping = Repo.get_by(ActiveMapping, name: params["name"])
-
-      if !is_nil(active_mapping.inserted_at) do
-        InactiveMapping.changeset(%InactiveMapping{}, %{
-          name: active_mapping.name,
-          url: active_mapping.url,
-          active_mapping_id: active_mapping.id,
-          original_inserted_at: active_mapping.inserted_at
-        })
-        |> Repo.insert()
-      end
-
-      {:ok, updated_active_mapping} = active_mapping
-      |> ActiveMapping.changeset(%{url: params["url"]})
-      |> Repo.insert_or_update()
-
-      updated_active_mapping
+    {:ok, result} = Repo.transaction(fn ->
+      params |> Enum.map(&upsert_mapping/1)
     end)
 
-    json(conn, %{result: result})
+    import_map = format_import_map_json(result)
+
+    json(conn, import_map)
+  end
+
+  defp upsert_mapping({name, url}) do
+    active_mapping = Repo.get_by(ActiveMapping, name: name)
+
+    if !is_nil(active_mapping.inserted_at) do
+      InactiveMapping.changeset(%InactiveMapping{}, %{
+        name: active_mapping.name,
+        url: active_mapping.url,
+        active_mapping_id: active_mapping.id,
+        original_inserted_at: active_mapping.inserted_at
+      })
+      |> Repo.insert()
+    end
+
+    {:ok, updated_active_mapping} = active_mapping
+    |> ActiveMapping.changeset(%{url: url})
+    |> Repo.insert_or_update()
+
+    updated_active_mapping
   end
 
   def get_mappings(conn, _params) do
     json(conn, %{})
+  end
+
+  defp format_import_map_json(mapping_list) do
+    mapping_list |> Enum.reduce(%{}, fn mapping, import_map ->
+      Map.put(import_map, mapping.name, mapping.url)
+    end)
   end
 end

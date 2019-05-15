@@ -19,5 +19,8 @@
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/system.min.js") %>"></script>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/system-extras.amd.min.js") %>"></script>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/system-extras.named-exports.min.js") %>"></script>
+    <script>
+      System.import("<%= Routes.static_path(@conn, "/js/config.js") %>")
+    </script>
   </body>
 </html>

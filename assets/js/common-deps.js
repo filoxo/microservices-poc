@@ -1,5 +1,3 @@
-window.SystemJS = window.System
-
 function insertNewImportMap(newMapJSON) {
   const newScript = document.createElement('script')
   newScript.type = 'systemjs-importmap'

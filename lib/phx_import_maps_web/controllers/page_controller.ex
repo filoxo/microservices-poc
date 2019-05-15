@@ -6,6 +6,8 @@ defmodule PhxImportMapsWeb.PageController do
   def index(conn, _params) do
     render(conn, "index.html")
   end
+
+  @doc "Creates an active mapping, and archives an existing previous mapping."
   def add_mappings(conn, params) do
 
    {:ok, result} = Repo.transaction(fn ->

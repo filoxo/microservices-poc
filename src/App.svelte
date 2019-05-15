@@ -1,14 +1,24 @@
 <script>
+	import { onMount } from 'svelte';
 	import { links } from "svelte-routing";
 
 	let urls = {
 		messenger: '/messenger',
 		dashboard: '/dashboard'
 	}
-	let currentUrl = window.location.pathname
-
+	let currentUrl = window.location.pathname;
 	$: atMessengerRoute = currentUrl.startsWith(urls.messenger)
 	$: atDashboardRoute = currentUrl.startsWith(urls.dashboard)
+
+	onMount(() => {
+		window.addEventListener('pushState', function(e) {
+			currentUrl = window.location.pathname
+		})
+
+		return () => {
+			window.removeEventListener('pushState')
+		}
+	})
 </script>
 
 <style>

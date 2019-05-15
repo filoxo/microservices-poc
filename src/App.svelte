@@ -11,12 +11,12 @@
 	$: atDashboardRoute = currentUrl.startsWith(urls.dashboard)
 
 	onMount(() => {
-		window.addEventListener('pushState', function(e) {
+		const pushStateListener = window.addEventListener('pushState', function(e) {
 			currentUrl = window.location.pathname
 		})
 
 		return () => {
-			window.removeEventListener('pushState')
+			window.removeEventListener('pushState', pushStateListener)
 		}
 	})
 </script>

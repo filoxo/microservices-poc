@@ -10,8 +10,8 @@ export default {
 	input: 'src/main.js',
 	output: {
 		sourcemap: true,
-		format: 'iife',
-		name: 'app',
+		format: 'amd',
+		name: 'navbar-ui',
 		file: 'public/bundle.js'
 	},
 	plugins: [
@@ -20,9 +20,9 @@ export default {
 			dev: !production,
 			// we'll extract any component CSS out into
 			// a separate file — better for performance
-			css: css => {
-				css.write('public/bundle.css');
-			}
+			// css: css => {
+			// 	css.write('public/bundle.css');
+			// }
 		}),
 
 		// If you have external dependencies installed from

@@ -19,8 +19,7 @@ module.exports = function(name, overridesConfig) {
       entry: path.resolve(__dirname, `./src/index.js`),
       output: {
         filename: `${name}.js`,
-        library: name,
-        libraryTarget: 'amd',
+        libraryTarget: 'system',
         path: path.resolve(process.cwd(), 'build'),
         chunkFilename: '[name].js',
       },

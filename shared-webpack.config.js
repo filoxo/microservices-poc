@@ -27,6 +27,10 @@ module.exports = function(name, overridesConfig) {
       module: {
         rules: [
           {
+            test: /\.svg$/,
+            use: ['@svgr/webpack', 'url-loader'],
+          },
+          {
             test: /\.js?$/,
             exclude: [path.resolve(process.cwd(), 'node_modules')],
             loader: 'babel-loader',
@@ -36,17 +40,7 @@ module.exports = function(name, overridesConfig) {
               ),     
               plugins: [
                 // https://github.com/babel/babel-loader#babel-is-injecting-helpers-into-each-file-and-bloating-my-code
-                "@babel/plugin-transform-runtime",
-                [
-                  require.resolve('babel-plugin-named-asset-import'),
-                  {
-                    loaderMap: {
-                      svg: {
-                        ReactComponent: '@svgr/webpack?-svgo,+ref![path]',
-                      },
-                    },
-                  },
-                ],
+                "@babel/plugin-transform-runtime"
               ],
               // This is a feature of `babel-loader` for webpack (not Babel itself).
               // It enables caching results in ./node_modules/.cache/babel-loader/

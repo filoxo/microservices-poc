@@ -32,13 +32,16 @@ ul {
 	list-style: none;
 	align-items: center;
 	margin: 0;
-	padding: 1.25rem;
+	padding: 0 1rem;
 }
 li {
 	margin: 0 1rem;
+	padding: 1rem 0;
 }
 a {
 	color: #999;
+	text-decoration: none;
+	transition: all .15s ease-in-out;
 }
 a[aria-current="true"],
 a:hover {
@@ -46,6 +49,8 @@ a:hover {
 }
 #logo {
 	display: block;
+	margin-bottom: -1rem;
+	margin-top: -1rem;
 	width: 2rem;
 }
 </style>

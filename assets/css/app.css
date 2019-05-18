@@ -1,6 +1,15 @@
 /* This file is for your main application css. */
 
-@import "./phoenix.css";
+@import "./normalize.css";
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 :root {
     --page-width: 1200px;
 }

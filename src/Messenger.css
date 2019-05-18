@@ -1,0 +1,11 @@
+.MessengerContainer {
+    display: flex;
+}
+
+.MessengerNav {
+    display: flex;
+    flex-direction: column;
+}
+
+.MessagesList {
+}

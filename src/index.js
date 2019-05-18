@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import singleSpaReact from 'single-spa-react';
 
-import App from './App'
+import Messenger from './Messenger'
 
 const reactLifecycles = singleSpaReact({
     React,
     ReactDOM,
-    rootComponent: App,
+    rootComponent: Messenger,
     domElementGetter: () => document.getElementById("messenger-ui"),
 });
 

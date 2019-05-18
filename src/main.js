@@ -6,14 +6,6 @@ const svelteLifecycles = singleSpaSvelte({
 	domElementGetter: () => document.getElementById('navbar-ui')
 });
 
-export const bootstrap = [
-	svelteLifecycles.bootstrap,
-];
-
-export const mount = [
-	svelteLifecycles.mount,
-];
-
-export const unmount = [
-	svelteLifecycles.unmount,
-];
+export const bootstrap = svelteLifecycles.bootstrap;
+export const mount = svelteLifecycles.mount;
+export const unmount = svelteLifecycles.unmount;

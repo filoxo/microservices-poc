@@ -1,10 +1,8 @@
 .MessengerContainer {
     display: flex;
-}
-
-.MessengerNav {
-    display: flex;
-    flex-direction: column;
+    margin: 0 auto;
+    width: var(--page-width);
+    min-height: calc(100vh - 50px);
 }
 
 .MessagesList {

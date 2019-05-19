@@ -1,19 +1,17 @@
 import React from 'react'
 import styles from './Messenger.css'
+import { Router } from "@reach/router"
+import AllConversations from './AllConversations'
+import Sidebar from './Sidebar'
 
 export default function Messenger(props) {
     return (
         <div className={styles.MessengerContainer}>
-            <nav className={styles.MessengerNav}>
-                <h5>Customers</h5> 
-                <button type="button">All</button>
-                <button type="button">Unassigned</button>
-                <button type="button">My Messages</button>
-            </nav>
-            <div>
-                 
-            </div>
-            <div></div>
+            <Router>
+                <Sidebar path="conversations">
+                    <AllConversations default path="all/*"/>
+                </Sidebar>
+            </Router>
         </div>
     )
 }

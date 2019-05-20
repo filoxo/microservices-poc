@@ -5,6 +5,7 @@
 }
 
 .Sidebar {
+    border-right: 1px solid lightgrey;
     display: flex;
     flex-direction: column;
     padding: 1rem;

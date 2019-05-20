@@ -1,18 +1,15 @@
 import React from 'react'
-import { Link } from "@reach/router"
+import { Link } from "react-router-dom"
 import styles from './Sidebar.css'
 
 export default function Sidebar({children}) {
     return (
-        <div className={styles.Container} >
             <nav className={styles.Sidebar}>
                 <h5>Customers</h5>
-                <Link to="all">All</Link>
-                <Link to="unassigned">Unassigned</Link>
-                <Link to="my-messages">My Messages</Link>
+                <Link to="/conversations/all">All</Link>
+                <Link to="/conversations/unassigned">Unassigned</Link>
+                <Link to="/conversations/my-messages">My Messages</Link>
             </nav>
-            <div>{children}</div>
-        </div>
         
     )
 }

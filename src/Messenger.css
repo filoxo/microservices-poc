@@ -1,8 +1,8 @@
 .MessengerContainer {
-    display: flex;
-    margin: 0 auto;
-    width: var(--page-width);
-    min-height: calc(100vh - 50px);
+  display: flex;
+  margin: 0 auto;
+  width: var(--page-width);
+  min-height: calc(100vh - 50px);
 }
 
 .MessagesList {

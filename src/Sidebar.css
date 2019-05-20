@@ -1,13 +1,13 @@
 .Container {
-    display: flex;
-    height: 100%;
-    width: 100vw;
+  display: flex;
+  height: 100%;
+  width: 100vw;
 }
 
 .Sidebar {
-    border-right: 1px solid lightgrey;
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    width: 250px;
+  border-right: 1px solid lightgrey;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  width: 250px;
 }

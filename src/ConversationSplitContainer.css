@@ -1,9 +1,9 @@
 .LeftList {
-    border-right: 1px solid lightgrey;
-    height: 100%;
-    width: 300px;
+  border-right: 1px solid lightgrey;
+  height: 100%;
+  width: 300px;
 }
 
 .Container {
-    display: flex;
+  display: flex;
 }

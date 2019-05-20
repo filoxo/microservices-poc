@@ -1,0 +1,25 @@
+.Conversation {
+    border-bottom: 1px solid lightgrey;
+    color: inherit;
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
+}
+
+.Title {
+    display: block;
+    font-size: .8rem;
+    font-weight: bold; 
+    margin-bottom: .5rem;
+}
+
+.ResponseContent {
+    display: block;
+    height: calc(2 * 1.1em);
+}
+
+.ReplyContent {
+    composes: ResponseContent;
+    border-left: 3px solid lightgrey;
+    padding-left: 1rem;
+}

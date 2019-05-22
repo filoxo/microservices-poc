@@ -1,7 +1,8 @@
 .LeftList {
   border-right: 1px solid lightgrey;
   height: 100%;
-  width: 300px;
+  max-width: 300px;
+  min-width: 300px;
 }
 
 .Container {

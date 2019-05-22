@@ -1,0 +1,23 @@
+.Chat {
+  background-color: rgb(240, 240, 240);
+  border-radius: 1.5rem;
+  max-width: 300px;
+  padding: 1rem 1.25rem;
+}
+
+.ChatFrom {
+  composes: Chat;
+  border-bottom-left-radius: 0;
+}
+
+.ChatTo {
+  composes: Chat;
+  align-self: flex-end;
+  background-color: rgb(230, 246, 255);
+  border-bottom-right-radius: 0;
+}
+
+.ChatFrom + .ChatTo,
+.ChatTo + .ChatFrom {
+  margin-top: 1.5rem;
+}

@@ -67,27 +67,29 @@ const data = [
 ]
 
 export default function AllConversations(props) {
-  const { url } = props.match
+  const { url, path } = props.match
   const { conversationId } = props.match.params
-  console.log(conversationId)
+
+  const createUrl = id => {
+    return path.replace(':conversationId?', id)
+  }
+
   return (
     <ConversationSplitContainer>
       <>
         {data.map(convo => (
           <ConversationLink
             key={convo.id}
-            to={`${url}/${convo.id}`}
+            to={createUrl(convo.id)}
             name={convo.recipient.name}
             content={convo.latestMessage.content}
             isReply={convo.latestMessage.sender === convo.recipient.id}
           />
         ))}
       </>
-      <div>
-        {!!conversationId && (
-          <SelectedConversation conversationId={conversationId} />
-        )}
-      </div>
+      {!!conversationId && (
+        <SelectedConversation conversationId={conversationId} />
+      )}
     </ConversationSplitContainer>
   )
 }

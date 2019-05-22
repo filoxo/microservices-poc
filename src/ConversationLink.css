@@ -6,6 +6,10 @@
   text-decoration: none;
 }
 
+.Conversation[aria-current] {
+  background-color: rgb(230, 246, 255);
+}
+
 .Title {
   display: block;
   font-size: 0.8rem;

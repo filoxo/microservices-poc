@@ -1,14 +1,37 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import styles from './Sidebar.css'
 
-export default function Sidebar({ children }) {
+const urls = {
+  allConversations: '/conversations/all',
+  unassignedConversations: '/conversations/unassigned',
+  myMessages: '/conversations/my-messages'
+}
+export default function Sidebar(props) {
   return (
     <nav className={styles.Sidebar}>
       <h5>Customers</h5>
-      <Link to="/conversations/all">All</Link>
-      <Link to="/conversations/unassigned">Unassigned</Link>
-      <Link to="/conversations/my-messages">My Messages</Link>
+      <NavLink
+        aria-current="location"
+        className={styles.SidebarLink}
+        to={urls.allConversations}
+      >
+        All
+      </NavLink>
+      <NavLink
+        aria-current="location"
+        className={styles.SidebarLink}
+        to={urls.unassignedConversations}
+      >
+        Unassigned
+      </NavLink>
+      <NavLink
+        aria-current="location"
+        className={styles.SidebarLink}
+        to={urls.myMessages}
+      >
+        My Messages
+      </NavLink>
     </nav>
   )
 }

@@ -33,18 +33,14 @@ export default function SelectedConversation(props) {
   return (
     <div style={{ flexGrow: '1', display: 'flex', flexDirection: 'column' }}>
       <article className={styles.ConversationList}>
-        {conversations.length ? (
-          conversations.map(message => (
-            <ChatBubble
-              key={message.id}
-              isExternalSender={message.from !== 'location'}
-            >
-              {message.content}
-            </ChatBubble>
-          ))
-        ) : (
-          <p>No messages yet</p>
-        )}
+        {conversations.map(message => (
+          <ChatBubble
+            key={message.id}
+            isExternalSender={message.from !== 'location'}
+          >
+            {message.content}
+          </ChatBubble>
+        ))}
       </article>
       <div className={styles.ConversationInputArea}>
         <textarea

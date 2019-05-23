@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef, useLayoutEffect } from 'react'
 import ChatBubble from './ChatBubble'
 import Button from './Button'
 import styles from './SelectedConversation.css'
@@ -7,6 +7,7 @@ import { get, set } from './DataStore'
 export default function SelectedConversation(props) {
   const [conversations, setConversations] = useState([])
   const [currentMessage, setCurrentMessage] = useState('')
+  const conversationListRef = useRef(null)
 
   useEffect(() => {
     const convos = get(`conversation:${props.conversationId}`, [])
@@ -15,6 +16,11 @@ export default function SelectedConversation(props) {
 
   useEffect(() => {
     set(`conversation:${props.conversationId}`, conversations)
+  }, [conversations])
+
+  useLayoutEffect(() => {
+    conversationListRef.current.scrollTop =
+      conversationListRef.current.scrollHeight
   }, [conversations])
 
   const submitMessage = () => {
@@ -32,7 +38,7 @@ export default function SelectedConversation(props) {
 
   return (
     <div style={{ flexGrow: '1', display: 'flex', flexDirection: 'column' }}>
-      <article className={styles.ConversationList}>
+      <article className={styles.ConversationList} ref={conversationListRef}>
         {conversations.map(message => (
           <ChatBubble
             key={message.id}

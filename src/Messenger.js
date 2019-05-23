@@ -8,6 +8,9 @@ import {
 } from 'react-router-dom'
 import AllConversations from './AllConversations'
 import Sidebar from './Sidebar'
+import { setup } from './DataStore'
+
+setup()
 
 export default function Messenger() {
   return (

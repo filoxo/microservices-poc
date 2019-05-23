@@ -1,117 +1,64 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import ChatBubble from './ChatBubble'
+import Button from './Button'
 import styles from './SelectedConversation.css'
-
-const conversationData = {
-  '12345': [
-    {
-      id: '1',
-      from: 'location',
-      content: 'Hi Zac, thank you for choosing to do business with us!',
-      timestamp: ''
-    }
-  ],
-  '23456': [
-    {
-      id: '2',
-      from: 'location',
-      content: 'Hola Juan, gracias por su negocio con nosotros!',
-      timestamp: ''
-    }
-  ],
-  '34567': [
-    {
-      id: '3',
-      from: 'customer',
-      content: 'Hi do you have any trucks available? Or on sale?',
-      timestamp: ''
-    },
-    {
-      id: '4',
-      from: 'location',
-      content: 'We will respond to your inquiry shortly.',
-      timestamp: ''
-    },
-    {
-      id: '5',
-      from: 'location',
-      content:
-        'We have two F150s on the lot today. You should come check them out!',
-      timestamp: ''
-    },
-    {
-      id: '6',
-      from: 'customer',
-      content: 'What is the current list price?',
-      timestamp: ''
-    }
-  ]
-}
-//   },
-//   {
-//     id: '23456',
-//     recipient: {
-//       id: 'asdf',
-//       name: 'Juan'
-//     },
-//     latestMessage: {
-//       id: '123inlwkejr',
-//       sender: 'mylocation',
-//       content: ''
-//     }
-//   },
-//   {
-//     id: '34567',
-//     recipient: {
-//       id: 'oiew',
-//       name: 'Chen'
-//     },
-//     latestMessage: {
-//       id: 'jdjlsa',
-//       sender: 'oiew',
-//       content: 'What is the current list price?'
-//     }
-//   },
-//   {
-//     id: '45678',
-//     recipient: {
-//       id: 'as9d',
-//       name: 'Wendy'
-//     },
-//     latestMessage: {
-//       id: 'aiud89',
-//       sender: 'as9d',
-//       content: 'I might have to think about that then.'
-//     }
-//   },
-//   {
-//     id: '56789',
-//     recipient: {
-//       id: 'qwert',
-//       name: 'Sarai'
-//     },
-//     latestMessage: {
-//       id: 'doidjwb',
-//       sender: 'mylocation',
-//       content: 'We will be with you shortly.'
-//     }
-//   }
-// ]
+import { get, set } from './DataStore'
 
 export default function SelectedConversation(props) {
-  const conversations = conversationData[props.conversationId] || []
+  const [conversations, setConversations] = useState([])
+  const [currentMessage, setCurrentMessage] = useState('')
+
+  useEffect(() => {
+    const convos = get(`conversation:${props.conversationId}`, [])
+    setConversations(convos)
+  }, [props.conversationId])
+
+  useEffect(() => {
+    set(`conversation:${props.conversationId}`, conversations)
+  }, [conversations])
+
+  const submitMessage = () => {
+    const time = Date.now()
+    setConversations(
+      conversations.concat({
+        id: time,
+        from: 'location',
+        content: currentMessage,
+        timestamp: time
+      })
+    )
+    setCurrentMessage('')
+  }
+
   return (
-    <div style={{ flex: '1' }}>
+    <div style={{ flexGrow: '1', display: 'flex', flexDirection: 'column' }}>
       <article className={styles.ConversationList}>
-        {conversations.map(message => (
-          <ChatBubble
-            key={message.id}
-            isExternalSender={message.from !== 'location'}
-          >
-            {message.content}
-          </ChatBubble>
-        ))}
+        {conversations.length ? (
+          conversations.map(message => (
+            <ChatBubble
+              key={message.id}
+              isExternalSender={message.from !== 'location'}
+            >
+              {message.content}
+            </ChatBubble>
+          ))
+        ) : (
+          <p>No messages yet</p>
+        )}
       </article>
+      <div className={styles.ConversationInputArea}>
+        <textarea
+          value={currentMessage}
+          onChange={e => setCurrentMessage(e.target.value)}
+          className={styles.ConversationInput}
+          placeholder="Type..."
+        />
+        <div className={styles.ConversationActions}>
+          <Button disabled={!currentMessage} onClick={submitMessage}>
+            Send
+          </Button>
+        </div>
+      </div>
     </div>
   )
 }

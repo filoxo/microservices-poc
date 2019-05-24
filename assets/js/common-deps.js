@@ -16,6 +16,7 @@ const devDependencies = {
     'react-dom': 'https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.8.6/umd/react-dom.development.js',
     'single-spa': 'https://unpkg.com/single-spa@4.3.2/lib/umd/single-spa.min.js',
     'lodash': 'https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js',
+    'prop-types': 'https://unpkg.com/prop-types@15.7.2/prop-types.js',
   }
 }
 
@@ -25,6 +26,7 @@ const prodDependencies = {
     'react-dom': 'https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.8.6/umd/react-dom.production.min.js',
     'single-spa': 'https://unpkg.com/single-spa@4.3.2/lib/umd/single-spa.min.js',
     'lodash': 'https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js',
+    'prop-types': 'https://unpkg.com/prop-types@15.7.2/prop-types.min.js'
   }
 }
 

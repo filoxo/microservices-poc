@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>PhxImportMaps · Phoenix Framework</title>
+    <title>Podium</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
     <script type="systemjs-importmap">
       <%= @import_map %>
@@ -24,8 +23,6 @@
       };
       history.pushState = _wr('pushState'), history.replaceState = _wr('replaceState');
     </script>
-  </head>
-  <body>
     <header id="navbar-ui"></header>
     <main role="main">
       <div id="messenger-ui"></div>
@@ -37,5 +34,4 @@
       window.SystemJS = window.System
       System.import("<%= Routes.static_path(@conn, "/js/config.js") %>")
     </script>
-  </body>
 </html>

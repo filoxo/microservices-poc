@@ -67,12 +67,10 @@ const data = [
 ]
 
 export default function AllConversations(props) {
-  const { url, path } = props.match
+  const { path } = props.match
   const { conversationId } = props.match.params
 
-  const createUrl = id => {
-    return path.replace(':conversationId?', id)
-  }
+  const createUrl = id => path.replace(':conversationId?', id)
 
   return (
     <ConversationSplitContainer>

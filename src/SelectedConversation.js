@@ -36,6 +36,34 @@ export default function SelectedConversation(props) {
     setCurrentMessage('')
   }
 
+  const submitMessageAnyMaybeGetResponse = () => {
+    submitMessage()
+    /*
+      For added realism, I'm randomly adding responses whenever I send a message.
+      There is a 60% chance of creating this response, with 3 different responses.
+    */
+    if (Math.random() < 0.4) {
+      setTimeout(() => {
+        const time = Date.now()
+        const random = Math.random()
+        let content = 'OK sounds good'
+        if (random > 0.66) {
+          content = 'Tell me more'
+        } else if (random < 0.33) {
+          content = 'Hmm... let me think about that.'
+        }
+        setConversations(
+          conversations.concat({
+            id: time,
+            from: 'customer',
+            content,
+            timestamp: time
+          })
+        )
+      }, 4000)
+    }
+  }
+
   return (
     <div style={{ flexGrow: '1', display: 'flex', flexDirection: 'column' }}>
       <article className={styles.ConversationList} ref={conversationListRef}>
@@ -56,7 +84,10 @@ export default function SelectedConversation(props) {
           placeholder="Type..."
         />
         <div className={styles.ConversationActions}>
-          <Button disabled={!currentMessage} onClick={submitMessage}>
+          <Button
+            disabled={!currentMessage}
+            onClick={submitMessageAnyMaybeGetResponse}
+          >
             Send
           </Button>
         </div>

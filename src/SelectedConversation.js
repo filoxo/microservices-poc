@@ -64,6 +64,13 @@ export default function SelectedConversation(props) {
     }
   }
 
+  const handleSubmitOnEnter = e => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault()
+      submitMessage()
+    }
+  }
+
   return (
     <div style={{ flexGrow: '1', display: 'flex', flexDirection: 'column' }}>
       <article className={styles.ConversationList} ref={conversationListRef}>
@@ -80,6 +87,7 @@ export default function SelectedConversation(props) {
         <textarea
           value={currentMessage}
           onChange={e => setCurrentMessage(e.target.value)}
+          onKeyPress={handleSubmitOnEnter}
           className={styles.ConversationInput}
           placeholder="Type..."
         />

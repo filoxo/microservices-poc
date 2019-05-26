@@ -3,6 +3,7 @@
   border-radius: 1.5rem;
   max-width: 300px;
   padding: 1rem 1.25rem;
+  white-space: pre;
 }
 
 .ChatFrom {

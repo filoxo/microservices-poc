@@ -1,0 +1,25 @@
+.Title {
+  background: #333;
+  color: #fff;
+  padding: 0.5rem 1rem;
+}
+.ChatPopup {
+  background: #fff;
+  bottom: 0;
+  border: 1px solid #333;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  max-height: 750px;
+  height: 80vh;
+  max-width: 450px;
+  min-width: 300px;
+  position: fixed;
+  right: 10vw;
+  width: 25vw;
+}
+
+.ConversationWrapper {
+  display: flex;
+  flex-grow: 1;
+  height: calc(100% - 34px);
+}

@@ -4,6 +4,8 @@ import singleSpaReact from 'single-spa-react'
 
 import Messenger from './Messenger'
 
+__webpack_public_path__ = 'http://localhost:5555/'
+
 const reactLifecycles = singleSpaReact({
   React,
   ReactDOM,

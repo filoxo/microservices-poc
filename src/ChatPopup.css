@@ -1,16 +1,22 @@
 .Title {
   background: #333;
   color: #fff;
-  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 0.5rem;
 }
 .ChatPopup {
+  --border: 1px solid #333;
   background: #fff;
   bottom: 0;
-  border: 1px solid #333;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  max-height: 750px;
+  border-left: var(--border);
+  border-right: var(--border);
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
   height: 80vh;
+  overflow: hidden;
+  max-height: 750px;
   max-width: 450px;
   min-width: 300px;
   position: fixed;
@@ -21,5 +27,5 @@
 .ConversationWrapper {
   display: flex;
   flex-grow: 1;
-  height: calc(100% - 34px);
+  height: 100%;
 }

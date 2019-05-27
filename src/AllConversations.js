@@ -2,6 +2,9 @@ import React from 'react'
 import ConversationSplitContainer from './ConversationSplitContainer'
 import ConversationLink from './ConversationLink'
 import SelectedConversation from './SelectedConversation'
+import IconButton from './IconButton'
+import { ReactComponent as Pin } from './icons/pin.svg'
+import styles from './AllConversations.css'
 
 const data = [
   {
@@ -72,6 +75,13 @@ export default function AllConversations(props) {
 
   const createUrl = id => path.replace(':conversationId?', id)
 
+  const dispatchConversationPopupEvent = () => {
+    var event = new CustomEvent('conversation:popup', {
+      detail: { conversationId }
+    })
+    document.dispatchEvent(event)
+  }
+
   return (
     <ConversationSplitContainer>
       <>
@@ -86,7 +96,19 @@ export default function AllConversations(props) {
         ))}
       </>
       {!!conversationId && (
-        <SelectedConversation conversationId={conversationId} />
+        <SelectedConversation
+          conversationId={conversationId}
+          toolbar={
+            <div className={styles.AllConversationsToolbar}>
+              <IconButton
+                onClick={dispatchConversationPopupEvent}
+                label="Pin Conversation"
+              >
+                <Pin width="16" />
+              </IconButton>
+            </div>
+          }
+        />
       )}
     </ConversationSplitContainer>
   )

@@ -73,6 +73,7 @@ export default function SelectedConversation(props) {
 
   return (
     <div style={{ flexGrow: '1', display: 'flex', flexDirection: 'column' }}>
+      {props.toolbar}
       <article className={styles.ConversationList} ref={conversationListRef}>
         {conversations.map(message => (
           <ChatBubble

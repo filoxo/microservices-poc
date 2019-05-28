@@ -25,7 +25,6 @@
 nav {
 	color: #fff;
 	margin: 0 auto;
-	max-width: var(--page-width);
 }
 ul {
 	display: flex;
@@ -48,10 +47,11 @@ a:hover {
 	color: #eee;
 }
 #logo {
+	--logo-size: 1.5rem;
 	display: block;
-	margin-bottom: -1rem;
-	margin-top: -1rem;
-	width: 2rem;
+	margin-bottom: calc(var(--logo-size) / -2);
+	margin-top: calc(var(--logo-size) / -2);
+	width: var(--logo-size);
 }
 </style>
 

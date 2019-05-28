@@ -26,7 +26,9 @@
     <header id="navbar-ui"></header>
     <main role="main">
       <div id="messenger-ui"></div>
+      <div id="dashboard-ui"></div>
     </main>
+    <div id="chat-popup"></div>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/system.min.js") %>"></script>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/system-extras.amd.min.js") %>"></script>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/system-extras.named-exports.min.js") %>"></script>

@@ -9,6 +9,6 @@ function prefix(location, ...prefixes) {
 }
 
 singleSpa.registerApplication('navbar-ui', () => SystemJS.import('navbar-ui'), () => true)
-singleSpa.registerApplication('messenger-ui', () => SystemJS.import('messenger-ui'), (location) => prefix(location, 'conversations'))
+singleSpa.registerApplication('messenger-ui', () => SystemJS.import('messenger-ui'), () => true)
 
 singleSpa.start()

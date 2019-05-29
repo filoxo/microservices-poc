@@ -2,7 +2,10 @@
 const sharedConfig = require('./shared-webpack.config')
 const path = require('path');
 
-module.exports = sharedConfig('messenger-ui', {
+module.exports = sharedConfig('dashboard-ui', {
+  output: {
+    publicPath: 'http://localhost:4444/',
+  },
   module: {
     rules: [
       {

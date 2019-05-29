@@ -1,0 +1,7 @@
+.Dashboard {
+  background: url('./fake-dashboard.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-height: calc(100vh - 50px);
+  min-height: calc(100vh - 50px);
+}

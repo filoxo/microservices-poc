@@ -1,20 +1,33 @@
-# PhxImportMaps
+# Import maps server
 
-To start your Phoenix server:
+This is a microservice to manage [import-maps](https://github.com/WICG/import-maps) to serve a microservices front-end, using single-spa.
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
+## Development
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+- clone repo
+- run `mix deps.get`
+- run `npm i --prefix assets`
+- run `mix phx.server`
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+## Usage
 
-## Learn more
+### Upsert mapping
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+Upsert one or more import maps. A successful insert will return the same mapping.
+
+```
+curl --request POST \
+  --url http://localhost:9999/api \
+  --header 'content-type: application/json' \
+  --data '{
+  	"package-name": "http://path/to/package.js"
+  }'
+```
+
+### Get import map
+
+Get import-map JSON of all packages.
+
+```
+curl --request GET --url http://localhost:9999/api
+```

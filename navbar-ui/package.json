@@ -15,9 +15,9 @@
   "scripts": {
     "build": "rollup -c",
     "autobuild": "rollup -c -w",
-    "dev": "run-p start:dev autobuild",
-    "start": "sirv public --port 9998",
-    "start:dev": "sirv public --dev --cors --port 9998"
+    "start": "run-p serve:dev autobuild",
+    "serve": "sirv public --port 9998",
+    "serve:dev": "sirv public --dev --cors --port 9998"
   },
   "dependencies": {
     "single-spa-svelte": "^1.0.0",

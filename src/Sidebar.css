@@ -1,0 +1,32 @@
+.Container {
+  display: flex;
+  height: 100%;
+  width: 100vw;
+}
+
+.Sidebar {
+  background: rgb(245, 245, 245);
+  border-right: 1px solid lightgrey;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  min-width: 250px;
+  max-width: 250px;
+}
+
+.SidebarLink {
+  border-radius: 3px;
+  color: inherit;
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  width: 100%;
+}
+
+.SidebarLink:hover {
+  background-color: rgb(230, 230, 235);
+}
+
+.SidebarLink[aria-current] {
+  background-color: rgb(200, 200, 210);
+}

@@ -1,0 +1,44 @@
+{
+  "12345": [
+    {
+      "id": "1",
+      "from": "location",
+      "content": "Hi Zac, thank you for choosing to do business with us!",
+      "timestamp": ""
+    }
+  ],
+  "23456": [
+    {
+      "id": "2",
+      "from": "location",
+      "content": "Hola Juan, gracias por su negocio con nosotros!",
+      "timestamp": ""
+    }
+  ],
+  "34567": [
+    {
+      "id": "3",
+      "from": "customer",
+      "content": "Hi do you have any trucks available? Or on sale?",
+      "timestamp": ""
+    },
+    {
+      "id": "4",
+      "from": "location",
+      "content": "We will respond to your inquiry shortly.",
+      "timestamp": ""
+    },
+    {
+      "id": "5",
+      "from": "location",
+      "content": "We have two F150s on the lot today. You should come check them out!",
+      "timestamp": ""
+    },
+    {
+      "id": "6",
+      "from": "customer",
+      "content": "What is the current list price?",
+      "timestamp": ""
+    }
+  ]
+}

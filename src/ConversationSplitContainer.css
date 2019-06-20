@@ -1,0 +1,11 @@
+.LeftList {
+  border-right: 1px solid lightgrey;
+  height: 100%;
+  max-width: 300px;
+  min-width: 300px;
+}
+
+.Container {
+  display: flex;
+  flex-grow: 1;
+}

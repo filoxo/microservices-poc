@@ -1,0 +1,6 @@
+.MessengerContainer {
+  display: flex;
+  margin: 0 auto;
+  max-height: calc(100vh - 50px);
+  min-height: calc(100vh - 50px);
+}

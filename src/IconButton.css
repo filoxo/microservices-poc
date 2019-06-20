@@ -1,0 +1,12 @@
+.IconButton {
+  background: transparent;
+  border: none;
+  border-radius: 10rem;
+  color: inherit;
+  line-height: 0;
+  padding: 8px;
+}
+
+.IconButton:hover {
+  background: rgb(128, 128, 128, 0.5);
+}

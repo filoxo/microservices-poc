@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="importmap-type" content="systemjs-importmap">
+    <title>Podium</title>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <script type="systemjs-importmap">
+      <%= @import_map %>
+    </script>
+    <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/common-deps.js") %>"></script>
+     <script>
+      /* Add history push/replaceState events */
+      var _wr = function(type) {
+        var orig = history[type];
+        return function() {
+            var rv = orig.apply(this, arguments);
+            var e = new Event(type);
+            e.arguments = arguments;
+            window.dispatchEvent(e);
+            return rv;
+        };
+      };
+      history.pushState = _wr('pushState'), history.replaceState = _wr('replaceState');
+    </script>
+    <header id="navbar-ui"></header>
+    <main role="main">
+      <div id="messenger-ui"></div>
+      <div id="dashboard-ui"></div>
+    </main>
+    <div id="chat-popup"></div>
+    <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/system.min.js") %>"></script>
+    <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/system-extras.amd.min.js") %>"></script>
+    <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/system-extras.named-exports.min.js") %>"></script>
+    <script type="text/javascript" src="https://unpkg.com/import-map-overrides"></script>
+    <script>
+      window.SystemJS = window.System
+      System.import("<%= Routes.static_path(@conn, "/js/config.js") %>")
+    </script>
+</html>

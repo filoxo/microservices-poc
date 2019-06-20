@@ -3,7 +3,7 @@ import * as singleSpa from 'single-spa'
 function prefix(location, ...prefixes) {
     return prefixes.some(
         prefix => (
-            location.href.indexOf(`${location.origin}/${prefix}`) !== -1
+            location.href.includes(`${location.origin}/${prefix}`)
         )
     )
 }
